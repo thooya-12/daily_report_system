@@ -24,10 +24,10 @@ public enum AttributeConst {
     EMP_ADMIN_FLG("admin_flag"),
 
     ROLE_ADMIN(1),
-    ROLE_GENRAL(0),
+    ROLE_GENERAL(0),
 
     DEL_FLAG_TRUE(1),
-    DEL_FALG_FALSE(0),
+    DEL_FLAG_FALSE(0),
 
     REPORT("report"),
     REPORTS("reports"),
@@ -53,7 +53,7 @@ public enum AttributeConst {
         return this.text;
     }
 
-    public Integer getIngeerValue() {
+    public Integer getIntegerValue() {
         return this.i;
     }
 
