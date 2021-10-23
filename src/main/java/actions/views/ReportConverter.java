@@ -1,5 +1,8 @@
 package actions.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Report;
 
 public class ReportConverter {
@@ -29,6 +32,16 @@ public class ReportConverter {
                 r.getContent(),
                 r.getCreatedAt(),
                 r.getUpdatedAt());
+    }
+
+    public static List<ReportView> toViewList(List<Report> list){
+        List<ReportView> evs = new ArrayList<>();
+
+        for(Report r : list) {
+            evs.add(toView(r));
+        }
+
+        return evs;
     }
 
     public static void copyViewToModel(Report r, ReportView rv) {
