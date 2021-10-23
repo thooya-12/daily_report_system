@@ -10,13 +10,13 @@ public enum AttributeConst {
     TOKEN("_token"),
     ERR("errors"),
 
-    LOGIN_EMP("login_emplyoee"),
+    LOGIN_EMP("login_employee"),
 
     LOGIN_ERR("loginError"),
 
     EMPLOYEE("employee"),
     EMPLOYEES("employees"),
-    EMP_COUNT("emplyoees_count"),
+    EMP_COUNT("employees_count"),
     EMP_ID("id"),
     EMP_CODE("code"),
     EMP_PASS("password"),

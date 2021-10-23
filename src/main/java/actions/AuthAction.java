@@ -39,7 +39,7 @@ public class AuthAction extends ActionBase {
             forward(ForwardConst.FW_LOGIN);
     }
 
-    public void login()  throws ServletException, IOException {
+    public void login() throws ServletException, IOException {
 
         String code = getRequestParam(AttributeConst.EMP_CODE);
         String plainPass = getRequestParam(AttributeConst.EMP_PASS);
@@ -65,6 +65,12 @@ public class AuthAction extends ActionBase {
 
 
 
+    }
+
+    public void logout() throws ServletException, IOException {
+        removeSessionScope(AttributeConst.LOGIN_EMP);
+        putSessionScope(AttributeConst.FLUSH, MessageConst.I_LOGOUT.getMessage());
+        redirect(ForwardConst.ACT_AUTH, ForwardConst.CMD_SHOW_LOGIN);
     }
 
 

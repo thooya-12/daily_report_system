@@ -33,6 +33,10 @@ public class EmployeeConverter {
 
     public static EmployeeView toView(Employee e) {
 
+        if(e == null) {
+            return null;
+        }
+
         return new EmployeeView(
                 e.getId(),
                 e.getCode(),
