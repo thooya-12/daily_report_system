@@ -80,7 +80,7 @@ public class ReportAction extends ActionBase {
                     ev,
                     day,
                     getRequestParam(AttributeConst.REP_TITLE),
-                    getRequestParam(AttributeConst.REP_TITLE),
+                    getRequestParam(AttributeConst.REP_CONTENT),
                     null,
                     null);
             List<String> errors = service.create(rv);
