@@ -1,0 +1,57 @@
+package actions.views;
+
+import models.Report;
+
+public class ReportConverter {
+
+    public static Report toModel(ReportView rv) {
+        return new Report(
+                rv.getId(),
+                EmployeeConverter.toModel(rv.getEmployee()),
+                rv.getReportDate(),
+                rv.getTitle(),
+                rv.getContent(),
+                rv.getCreatedAt(),
+                rv.getUpdatedAt());
+    }
+
+    public static ReportView toView(Report r) {
+
+        if(r == null) {
+            return null;
+        }
+
+        return new ReportView(
+                r.getId(),
+                EmployeeConverter.toView(r.getEmployee()),
+                r.getReportDate(),
+                r.getTitle(),
+                r.getContent(),
+                r.getCreatedAt(),
+                r.getUpdatedAt());
+    }
+
+    public static void copyViewToModel(Report r, ReportView rv) {
+        r.setId(rv.getId());
+        r.setEmployee(EmployeeConverter.toModel(rv.getEmployee()));
+        r.setReportDate(rv.getReportDate());
+        r.setTitle(rv.getTitle());
+        r.setContent(rv.getContent());
+        r.setCreatedAt(rv.getCreatedAt());
+        r.setUpdatedAt(rv.getUpdatedAt());
+    }
+
+    public static void copyModelToView(Report r, ReportView rv) {
+        rv.setId(r.getId());
+        rv.setEmployee(EmployeeConverter.toView(r.getEmployee()));
+        rv.setReportDate(r.getReportDate());
+        rv.setTitle(r.getTitle());
+        rv.setContent(r.getContent());
+        rv.setCreatedAt(r.getCreatedAt());
+        rv.setUpdatedAt(r.getUpdatedAt());
+
+    }
+
+
+
+}
