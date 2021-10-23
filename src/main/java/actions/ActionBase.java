@@ -31,7 +31,9 @@ public abstract class ActionBase {
 
     public abstract void process() throws ServletException, IOException;
 
-    protected void invoke() throws ServletException, IOException{
+    protected void invoke()
+            throws ServletException, IOException {
+
         Method commandMethod;
         try {
 
@@ -39,13 +41,14 @@ public abstract class ActionBase {
 
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]);
+
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | NullPointerException e) {
 
             e.printStackTrace();
-
             forward(ForwardConst.FW_ERR_UNKNOWN);
         }
+
     }
 
     protected void forward (ForwardConst target) throws ServletException, IOException {
@@ -116,6 +119,11 @@ public abstract class ActionBase {
         request.setAttribute(key.getValue(), value);
     }
 
+    @SuppressWarnings("unchecked")
+    protected<R> R getSessionScope(AttributeConst key) {
+        return (R) request.getSession().getAttribute(key.getValue());
+    }
+
     protected<V> void putSessionScope(AttributeConst key, V value) {
         request.getSession().setAttribute(key.getValue(), value);
     }
@@ -124,7 +132,7 @@ public abstract class ActionBase {
         request.getSession().removeAttribute(key.getValue());
     }
 
-    @SuppressWarnings("uncheked")
+    @SuppressWarnings("unchecked")
     protected<R> R getContextScope(PropertyConst key) {
         return (R) context.getAttribute(key.getValue());
     }
